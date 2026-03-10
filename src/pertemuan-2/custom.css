@@ -1,0 +1,500 @@
+/* Mengimpor font lucu dan rounded untuk tema kucing */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap');
+
+/* ========== BACKGROUND DENGAN WARNA EARTHY ========== */
+body {
+    font-family: 'Quicksand', 'Nunito', sans-serif;
+    background-color: #f0e5d8; /* Krem lembut */
+    color: #5d4e3c; /* Coklat tua earthy */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(180, 150, 130, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(140, 110, 90, 0.08) 0%, transparent 40%);
+}
+
+/* Pattern footprint kucing (🐾) dengan opacity rendah */
+body::before {
+    content: '🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾 🐾';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    color: #8b7a66; /* Coklat abu-abu */
+    font-size: 40px;
+    opacity: 0.1;
+    pointer-events: none;
+    transform: rotate(-5deg);
+    animation: pawPrintWalk 30s infinite linear;
+    z-index: 0;
+}
+
+/* Siluet kucing tidur di pojok */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 80px;
+    background: radial-gradient(ellipse at 70% 50%, rgba(110, 90, 75, 0.15) 0%, transparent 70%);
+    border-radius: 60% 40% 50% 50% / 50% 50% 40% 40%;
+    box-shadow: 
+        -15px 5px 0 rgba(110, 90, 75, 0.1),
+        10px -5px 0 rgba(150, 120, 100, 0.08);
+    pointer-events: none;
+    animation: catNap 10s infinite ease-in-out;
+    z-index: 0;
+}
+
+/* ========== CARD UTAMA DENGAN BORDER TELINGA KUCING ========== */
+.card {
+    max-width: 650px;
+    margin: 20px auto;
+    background: #faf3ea; /* Krem susu */
+    padding: 40px;
+    border-radius: 50px 50px 50px 50px;
+    box-shadow: 
+        0 15px 30px rgba(80, 60, 45, 0.15),
+        0 5px 15px rgba(120, 90, 70, 0.1),
+        inset 0 -3px 10px rgba(255, 250, 240, 0.8),
+        inset 0 3px 15px rgba(170, 140, 115, 0.2);
+    border: 4px solid #c9b2a0; /* Coklat pasir lembut */
+    position: relative;
+    z-index: 10;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Efek furry texture (tekstur bulu) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(180, 150, 130, 0.05) 8px,
+        rgba(180, 150, 130, 0.05) 16px
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Border motif telinga kucing (/\_/\ pattern) */
+.card::after {
+    content: '/\\_/\\';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b89b85; /* Coklat muda */
+    font-size: 40px;
+    opacity: 0.5;
+    letter-spacing: -3px;
+    font-weight: bold;
+    text-shadow: 0 3px 5px rgba(100, 70, 50, 0.2);
+    white-space: nowrap;
+}
+
+/* Efek hover cozy */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 25px 40px rgba(80, 60, 45, 0.2),
+        0 10px 25px rgba(140, 105, 80, 0.15),
+        inset 0 -3px 15px rgba(255, 250, 240, 0.9),
+        inset 0 3px 20px rgba(170, 140, 115, 0.3);
+    border-color: #b08d75;
+}
+
+/* ========== HEADER DENGAN FONT LUCU ========== */
+h1 {
+    font-family: 'Nunito', 'Quicksand', sans-serif;
+    color: #5d4e3c; /* Coklat tua */
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: 700;
+    margin: 20px 0;
+    text-shadow: 
+        2px 2px 0 #faf3ea,
+        4px 4px 0 #d9c3b0,
+        6px 6px 8px rgba(80, 60, 45, 0.1);
+    letter-spacing: 1px;
+    position: relative;
+    word-break: break-word;
+}
+
+/* Ornamen kucing di header */
+h1::before {
+    content: '🐱';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6em;
+    opacity: 0.7;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+    animation: catBlink 5s infinite;
+}
+
+h1::after {
+    content: '😺';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6em;
+    opacity: 0.7;
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+    animation: catBlink 5s infinite 1s;
+}
+
+/* ========== PARAGRAF DENGAN TEKSTUR LEMBUT ========== */
+p {
+    font-family: 'Quicksand', 'Nunito', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #5d4e3c;
+    margin: 25px 0;
+    padding: 20px 25px;
+    background: rgba(250, 243, 234, 0.9);
+    border-radius: 30px 30px 30px 15px;
+    box-shadow: 
+        inset 0 2px 8px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 8px rgba(170, 140, 115, 0.1),
+        0 5px 15px rgba(100, 70, 50, 0.1);
+    border-left: 6px dotted #c9b2a0;
+    border-right: 6px dotted #b08d75;
+    position: relative;
+}
+
+/* Ornamen ikan */
+p::before {
+    content: '🐟';
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    font-size: 35px;
+    opacity: 0.4;
+    transform: rotate(-15deg);
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+    animation: fishSwim 6s infinite;
+}
+
+p::after {
+    content: '🧶';
+    position: absolute;
+    right: -15px;
+    bottom: -15px;
+    font-size: 35px;
+    opacity: 0.4;
+    transform: rotate(15deg);
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+    animation: yarnRoll 8s infinite;
+}
+
+/* ========== HR SEPERTI EKOR KUCING ========== */
+hr {
+    border: none;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        transparent,
+        #b89b85 15%,
+        #d9c3b0 40%,
+        #b08d75 60%,
+        #8b7a66 85%,
+        transparent);
+    margin: 30px 0;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(80, 60, 45, 0.1);
+}
+
+/* Ekor kucing bergoyang */
+hr::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    background: #d9c3b0;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(40deg);
+    box-shadow: -5px -5px 0 #b08d75;
+    animation: tailSway 3s infinite ease-in-out;
+}
+
+hr::after {
+    content: '🐾';
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    font-size: 25px;
+    opacity: 0.5;
+    animation: pawPrint 4s infinite;
+}
+
+/* ========== GREETING DENGAN EFEK PURRING ========== */
+small {
+    display: block;
+    font-family: 'Nunito', 'Quicksand', sans-serif;
+    text-align: center;
+    color: #5d4e3c;
+    margin-top: 30px;
+    padding: 18px 30px;
+    font-size: 2em;
+    font-weight: 600;
+    background: linear-gradient(135deg, #faf3ea, #e6d5c5);
+    border-radius: 60px 60px 30px 30px;
+    border: 4px dashed #c9b2a0;
+    box-shadow: 
+        0 8px 15px rgba(80, 60, 45, 0.1),
+        inset 0 2px 10px rgba(255, 250, 240, 0.7);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+/* Efek purring (getaran lembut) saat hover */
+small:hover {
+    animation: purring 0.2s infinite;
+    background: linear-gradient(135deg, #e6d5c5, #d9c3b0);
+    border-color: #b08d75;
+    color: #3f3529;
+    box-shadow: 
+        0 12px 25px rgba(100, 70, 50, 0.2),
+        inset 0 2px 15px rgba(255, 250, 240, 0.8);
+    transform: scale(1.02);
+}
+
+/* Ornamen benang dan footprint */
+small::before {
+    content: '🧶';
+    position: absolute;
+    left: 5px;
+    top: -15px;
+    font-size: 0.5em;
+    opacity: 0.8;
+    animation: yarnRoll 4s infinite;
+}
+
+small::after {
+    content: '🐾';
+    position: absolute;
+    right: 5px;
+    bottom: -15px;
+    font-size: 0.5em;
+    opacity: 0.8;
+    animation: pawPrint 3s infinite;
+}
+
+/* ========== SCROLLBAR SEPERTI CAKAR KUCING ========== */
+::-webkit-scrollbar {
+    width: 16px;
+    background: #f0e5d8;
+}
+
+::-webkit-scrollbar-track {
+    background: #e6d5c5;
+    border: 3px solid #c9b2a0;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b08d75;
+    border-radius: 20px;
+    border: 3px solid #faf3ea;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5);
+    background-image: 
+        radial-gradient(circle at 30% 30%, #d9c3b0 3px, transparent 3px),
+        radial-gradient(circle at 70% 70%, #d9c3b0 3px, transparent 3px),
+        radial-gradient(circle at 50% 50%, #8b7a66 2px, transparent 2px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9f7e66;
+    background-image: 
+        radial-gradient(circle at 30% 30%, #f0e5d8 3px, transparent 3px),
+        radial-gradient(circle at 70% 70%, #f0e5d8 3px, transparent 3px),
+        radial-gradient(circle at 50% 50%, #5d4e3c 2px, transparent 2px);
+}
+
+/* ========== ANIMASI COZY ========== */
+@keyframes purring {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.008) translateY(-1px);
+    }
+    75% {
+        transform: scale(0.992) translateY(1px);
+    }
+}
+
+@keyframes tailSway {
+    0%, 100% {
+        transform: rotate(40deg) translateX(0);
+    }
+    50% {
+        transform: rotate(30deg) translateX(-8px);
+    }
+}
+
+@keyframes catBlink {
+    0%, 45%, 55%, 100% {
+        opacity: 0.7;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+@keyframes fishSwim {
+    0%, 100% {
+        transform: translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(-10deg);
+    }
+}
+
+@keyframes yarnRoll {
+    0%, 100% {
+        transform: rotate(15deg) scale(1);
+    }
+    50% {
+        transform: rotate(25deg) scale(1.1);
+    }
+}
+
+@keyframes pawPrint {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pawPrintWalk {
+    0% {
+        transform: rotate(-5deg) translateX(0);
+    }
+    100% {
+        transform: rotate(-5deg) translateX(-100px);
+    }
+}
+
+@keyframes catNap {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: scale(1.03);
+    }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .card {
+        margin: 15px;
+        padding: 25px;
+        border-radius: 40px;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    h1::before,
+    h1::after {
+        font-size: 0.5em;
+    }
+    
+    p {
+        font-size: 1em;
+        padding: 18px;
+    }
+    
+    small {
+        font-size: 1.5em;
+        padding: 15px 20px;
+    }
+    
+    body::after {
+        width: 80px;
+        height: 60px;
+    }
+}
+
+/* ========== TEXT SELECTION STYLE ========== */
+::selection {
+    background: #d9c3b0;
+    color: #3f3529;
+}
+
+/* ========== ANIMASI MASUK COZY ========== */
+@keyframes cozyFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.card {
+    animation: cozyFadeIn 0.8s ease-out;
+}
+
+/* ========== EFEK TAMBAHAN COZY ========== */
+/* Tambahan ornamen di card */
+.card .cat-toys {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 25px;
+    opacity: 0.2;
+    color: #8b7a66;
+    pointer-events: none;
+}
+
+/* Efek bulu halus di background */
+.fur-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(240, 230, 220, 0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
