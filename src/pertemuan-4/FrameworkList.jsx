@@ -30,8 +30,8 @@ export default function FrameworkList() {
 
           {item.tags.map((tag, index) => (
             <span
-              key={index} //tanda unique untuk setiap tag
-              className="bg-gray-200 text-gray-700 px-2 py-1 text-xs rounded mr-2"
+              key={index}
+              className="bg-gray-200 text-gray-700 px-2 py-1 text-xs rounded-full mr-2"
             >
               {tag}
             </span>
