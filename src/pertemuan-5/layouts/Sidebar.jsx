@@ -1,4 +1,3 @@
-const [showMenu, setShowMenu] = React.useState(false);
 import { FaHome, FaClipboardList, FaUsers, FaChartBar, FaPlus } from "react-icons/fa";
 
 export default function Sidebar() {
