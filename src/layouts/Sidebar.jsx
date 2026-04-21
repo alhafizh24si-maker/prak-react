@@ -6,9 +6,15 @@ import {
   FaPlus,
 } from "react-icons/fa";
 import { MdSpaceDashboard } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Sidebar() {
+        const menuClass = ({ isActive }) =>
+        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
+        ${isActive ? 
+            "text-hijau bg-green-200 font-extrabold" : 
+            "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+        }`
   return (
     <div
       id="sidebar"
@@ -32,42 +38,44 @@ export default function Sidebar() {
 
       {/* List Menu */}
       <div id="sidebar-menu" className="mt-10">
-        <ul id="menu-list" className="space-y-3">
-          {/* Dashboard */}
-          <li>
-            <Link
-              id="menu-1"
-              to="/"
-              className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold"
-            >
-              <MdSpaceDashboard className="mr-4 text-xl" />
-              Dashboard
-            </Link>
-          </li>
+  <ul id="menu-list" className="space-y-3">
+    {/* Dashboard */}
+    <li>
+      <NavLink
+        id="menu-1"
+        to="/"
+        className={menuClass}
+      >
+        <MdSpaceDashboard className="mr-4 text-xl" />
+        Dashboard
+      </NavLink>
+    </li>
 
-          {/* Orders */}
-          <li>
-            <Link
-              to="/orders"
-              className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold"
-            >
-              <FaClipboardList className="mr-4 text-xl" />
-              Orders
-            </Link>
-          </li>
+    {/* Orders */}
+    <li>
+      <NavLink
+        id="menu-2"
+        to="/orders"
+        className={menuClass}
+      >
+        <FaClipboardList className="mr-4 text-xl" /> 
+        Orders
+      </NavLink>
+    </li>
 
-          {/* Customers */}
-          <li>
-            <Link
-              to="/customers"
-              className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold"
-            >
-              <FaUsers className="mr-4 text-xl" />
-              Customers
-            </Link>
-          </li>
-        </ul>
-      </div>
+    {/* Customers */}
+    <li>
+      <NavLink
+        id="menu-3"
+        to="/customers"
+        className={menuClass}
+      >
+        <FaUsers className="mr-4 text-xl" /> 
+        Customers
+      </NavLink>
+    </li>
+  </ul>
+</div>
 
       {/* Footer */}
       <div id="sidebar-footer" className="mt-auto">

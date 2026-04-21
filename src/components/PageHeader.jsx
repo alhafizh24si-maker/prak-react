@@ -6,7 +6,7 @@ export default function PageHeader(props) {
                     {props.title}
                 </span>
                 <div id="breadcrumb-links" className="flex items-center font-medium space-x-2 mt-2">
-                    <span id="breadcrumb-home" className="text-hijau">Dashboard</span>
+                    <span id="breadcrumb-home" className="text-hijau">{props.title}</span>
                     <span id="breadcrumb-separator" className="text-gray-400">/</span>
                     <span id="breadcrumb-current" className="text-gray-400">Order List</span>
                 </div>
