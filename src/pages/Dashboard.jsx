@@ -19,8 +19,10 @@ export default function Dashboard() {
 
     return (
         <div id="dashboard-container" className="pb-10">
-            <PageHeader title="Dashboard" />
-            
+           <PageHeader 
+  title="Dashboard" 
+  breadcrumb="Welcome back, Admin" 
+/>
             {/* Grid Statistik */}
             <div id="dashboard-grid" className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {stats.map((item) => (
