@@ -4,7 +4,7 @@ import PageHeader from "../components/PageHeader";
 export default function Customers() {
     return (
         <div id="dashboard-container" className="pb-10">
-            <PageHeader />
+            <PageHeader title="Customers" />
             <p>ini Halaman Customer</p>
         </div>
     );

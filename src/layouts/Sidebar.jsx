@@ -33,6 +33,7 @@ export default function Sidebar() {
       {/* List Menu */}
       <div id="sidebar-menu" className="mt-10">
         <ul id="menu-list" className="space-y-3">
+          {/* Dashboard */}
           <li>
             <Link
               id="menu-1"
@@ -43,11 +44,27 @@ export default function Sidebar() {
               Dashboard
             </Link>
           </li>
-          <li className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
-            <FaClipboardList className="mr-4 text-xl" /> Orders
+
+          {/* Orders */}
+          <li>
+            <Link
+              to="/orders"
+              className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold"
+            >
+              <FaClipboardList className="mr-4 text-xl" />
+              Orders
+            </Link>
           </li>
-          <li className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
-            <FaUsers className="mr-4 text-xl" /> Customers
+
+          {/* Customers */}
+          <li>
+            <Link
+              to="/customers"
+              className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold"
+            >
+              <FaUsers className="mr-4 text-xl" />
+              Customers
+            </Link>
           </li>
         </ul>
       </div>
