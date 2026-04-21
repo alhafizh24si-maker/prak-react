@@ -41,7 +41,7 @@ export default function Sidebar() {
                     <img
                         id="footer-avatar"
                         className="w-16 h-16 rounded-full border-2 border-white shadow-sm object-cover"
-                        src="https://www.biografiku.com/wp-content/uploads/2020/01/Biografi-Chef-Arnold.jpg" 
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Arnold_Poernomo_in_2022.png" 
                         alt="avatar koki asli"
                     />
                 </div>
