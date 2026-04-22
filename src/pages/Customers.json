@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import PageHeader from "../components/PageHeader";
-
-const customersData = [
-  
+[
   { "customerId": "CUS-001", "customerName": "Budi Santoso", "email": "budi.s@gmail.com", "phone": "081234567890", "loyalty": "Gold" },
   { "customerId": "CUS-002", "customerName": "Siti Aminah", "email": "siti.a@yahoo.com", "phone": "081234567891", "loyalty": "Silver" },
   { "customerId": "CUS-003", "customerName": "Andi Wijaya", "email": "andi.w@outlook.com", "phone": "081234567892", "loyalty": "Bronze" },
@@ -33,69 +29,4 @@ const customersData = [
   { "customerId": "CUS-028", "customerName": "Jason Ranti", "email": "jejeng@gmail.com", "phone": "081234567817", "loyalty": "Bronze" },
   { "customerId": "CUS-029", "customerName": "Iwan Fals", "email": "iwan@gmail.com", "phone": "081234567818", "loyalty": "Gold" },
   { "customerId": "CUS-030", "customerName": "Ebiet G. Ade", "email": "ebiet@gmail.com", "phone": "081234567819", "loyalty": "Silver" }
-];
-
-export default function Customers() {
-  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <div className="p-6 pb-10">
-      <PageHeader title="Customers" breadcrumb={["Home", "User List"]}>
-        <button 
-          onClick={() => setShowModal(true)}
-          className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-blue-700 transition"
-        >
-          + Add Customer
-        </button>
-      </PageHeader>
-
-      <div className="mt-8 bg-white rounded-3xl shadow-sm overflow-hidden border border-gray-100">
-        <table className="w-full text-left">
-          <thead className="bg-gray-50 border-b border-gray-100">
-            <tr>
-              <th className="p-5 font-bold text-gray-600">Customer ID</th>
-              <th className="p-5 font-bold text-gray-600">Name</th>
-              <th className="p-5 font-bold text-gray-600">Email</th>
-              <th className="p-5 font-bold text-gray-600">Phone</th>
-              <th className="p-5 font-bold text-gray-600">Loyalty</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customersData.map((cust) => (
-              <tr key={cust.customerId} className="border-b border-gray-50 hover:bg-gray-50 transition">
-                <td className="p-5 text-gray-500 font-mono">{cust.customerId}</td>
-                <td className="p-5 font-bold text-gray-800">{cust.customerName}</td>
-                <td className="p-5 text-gray-600">{cust.email}</td>
-                <td className="p-5 text-gray-600">{cust.phone}</td>
-                <td className="p-5 text-blue-600 font-bold italic">{cust.loyalty}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <div className="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl">
-            <h2 className="text-2xl font-black mb-6">New Customer</h2>
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setShowModal(false); }}>
-               <input type="text" className="w-full p-3 rounded-xl border border-gray-200" placeholder="Customer ID" required />
-               <input type="text" className="w-full p-3 rounded-xl border border-gray-200" placeholder="Full Name" required />
-               <input type="email" className="w-full p-3 rounded-xl border border-gray-200" placeholder="Email Address" required />
-               <input type="text" className="w-full p-3 rounded-xl border border-gray-200" placeholder="Phone Number" required />
-               <select className="w-full p-3 rounded-xl border border-gray-200">
-                  <option>Bronze</option>
-                  <option>Silver</option>
-                  <option>Gold</option>
-               </select>
-               <div className="flex gap-3 mt-6">
-                  <button type="button" onClick={() => setShowModal(false)} className="flex-1 py-3 text-gray-500 font-bold">Cancel</button>
-                  <button type="submit" className="flex-1 py-3 bg-blue-600 text-white font-bold rounded-xl">Save</button>
-               </div>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+]
