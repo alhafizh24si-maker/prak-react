@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import "./assets/tailwind.css";
+import Loading from "./components/Loading";
 // import MainLayout from "./layouts/MainLayout";
 // import AuthLayout from "./layouts/AuthLayout";
 
@@ -65,6 +66,7 @@ const ErrorRouteWrapper = () => {
 
 function App() {
   return (
+    <Suspense fallback={<Loading />}>
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
@@ -83,8 +85,8 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/forgot" element={<Forgot/>} />
         </Route>
-
     </Routes>
+    </Suspense>
   );
 }
 
