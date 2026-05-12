@@ -5,17 +5,19 @@ import {
   FaExclamationCircle,
   FaLock,
   FaBan,
-  FaQuestionCircle
+  FaQuestionCircle,
 } from "react-icons/fa";
+import { FaBoxOpen } from "react-icons/fa";
 import { MdSpaceDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4 space-x-2 transition-all duration-200
-    ${isActive ? 
-        "text-hijau bg-green-200 font-extrabold shadow-sm" : 
-        "text-gray-600 hover:text-hijau hover:bg-green-100 hover:font-bold"
+    ${
+      isActive
+        ? "text-hijau bg-green-200 font-extrabold shadow-sm"
+        : "text-gray-600 hover:text-hijau hover:bg-green-100 hover:font-bold"
     }`;
 
   return (
@@ -51,14 +53,21 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink id="menu-2" to="/orders" className={menuClass}>
-              <FaClipboardList className="mr-4 text-xl" /> 
+              <FaClipboardList className="mr-4 text-xl" />
               Orders
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-3" to="/customers" className={menuClass}>
-              <FaUsers className="mr-4 text-xl" /> 
+              <FaUsers className="mr-4 text-xl" />
               Customers
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink id="menu-products" to="/products" className={menuClass}>
+              <FaBoxOpen className="mr-4 text-xl" />
+              Products
             </NavLink>
           </li>
 
@@ -68,25 +77,25 @@ export default function Sidebar() {
           </div>
           <li>
             <NavLink id="menu-err-400" to="/error/400" className={menuClass}>
-              <FaExclamationCircle className="mr-4 text-xl text-yellow-500" /> 
+              <FaExclamationCircle className="mr-4 text-xl text-yellow-500" />
               Error 400
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-err-401" to="/error/401" className={menuClass}>
-              <FaLock className="mr-4 text-xl text-orange-500" /> 
+              <FaLock className="mr-4 text-xl text-orange-500" />
               Error 401
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-err-403" to="/error/403" className={menuClass}>
-              <FaBan className="mr-4 text-xl text-red-500" /> 
+              <FaBan className="mr-4 text-xl text-red-500" />
               Error 403
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-err-404" to="/error/404" className={menuClass}>
-              <FaQuestionCircle className="mr-4 text-xl text-blue-500" /> 
+              <FaQuestionCircle className="mr-4 text-xl text-blue-500" />
               Error 404
             </NavLink>
           </li>
@@ -117,7 +126,10 @@ export default function Sidebar() {
             alt="avatar koki asli"
           />
         </div>
-        <span id="footer-brand" className="font-bold text-gray-400 block text-xs">
+        <span
+          id="footer-brand"
+          className="font-bold text-gray-400 block text-xs"
+        >
           Sedap Restaurant Admin Dashboard
         </span>
         <p id="footer-copyright" className="font-light text-gray-400 text-xs">

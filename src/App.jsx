@@ -1,35 +1,24 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react"; // Hapus useState karena tidak terpakai
 import { Route, Routes, useParams } from "react-router-dom";
 import "./assets/tailwind.css";
 import Loading from "./components/Loading";
-// import MainLayout from "./layouts/MainLayout";
-// import AuthLayout from "./layouts/AuthLayout";
 
-// const Dashboard = React.lazy(() => import("./pages/Dashboard"))
-// import Orders from "./pages/Orders"
-// import Customers from "./pages/Customers"
-// import ErrorPage from "./pages/NotFound";
-// import Login from "./pages/auth/Login";
-// import Register from "./pages/auth/Register";
-// import Forgot from "./pages/auth/Forgot";
-// import ErrorPage from "./pages/NotFound";
+// --- PERBAIKAN UTAMA: HAPUS IMPORT JSON DI SINI ---
+// File JSON tidak boleh di-import di App.jsx karena lokasinya tidak sesuai 
+// dan App.jsx tidak membutuhkan data tersebut secara langsung.
 
-const Dashboard = React.lazy(() => import("./pages/Dashboard"))
-const Orders = React.lazy(() => import("./pages/Orders"))
-const Customers = React.lazy(() => import("./pages/Customers"))
-const ErrorPage = React.lazy(() => import("./pages/ErrorPage"))
-const NotFound= React.lazy(() => import("./pages/NotFound"))
-const MainLayout = React.lazy(() => import("./layouts/MainLayout"))
-const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"))
-const Login = React.lazy(() => import("./pages/auth/Login"))
-const Register = React.lazy(() => import("./pages/auth/Register"))
-const Forgot = React.lazy(() => import("./pages/auth/Forgot"))
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Orders = React.lazy(() => import("./pages/Orders"));
+const Customers = React.lazy(() => import("./pages/Customers"));
+const Products = React.lazy(() => import("./pages/Products"));
+const ProductsDetail = React.lazy(() => import("./pages/ProductsDetail"));
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+const Login = React.lazy(() => import("./pages/auth/Login"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 
-
-
-
-
-// 1. Data Mapping untuk Error (Sesuai Desain Space)
 const errorData = {
   400: {
     code: "400",
@@ -57,35 +46,35 @@ const errorData = {
   },
 };
 
-// 2. Wrapper untuk menangkap ID Error dari URL
 const ErrorRouteWrapper = () => {
   const { errorCode } = useParams();
-  const data = errorData[errorCode] || errorData[404]; // Default ke 404
+  const data = errorData[errorCode] || errorData[404];
   return <ErrorPage {...data} />;
 };
 
 function App() {
   return (
     <Suspense fallback={<Loading />}>
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/customers" element={<Customers />} />
-
-        {/* Route Dinamis untuk Error Page */}
-        <Route path="/error/:errorCode" element={<ErrorRouteWrapper />} />
-
-        {/* Handle jika user ngetik URL asal */}
-        <Route path="*" element={<ErrorPage {...errorData[404]} />} />
-      </Route>
-
-        <Route element={<AuthLayout/>}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/forgot" element={<Forgot/>} />
+      <Routes>
+        {/* Main Application Routes */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/products" element={<Products />} />
+          {/* Dynamic Route untuk Detail Produk */}
+          <Route path="/products/:id" element={<ProductsDetail />} /> 
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/error/:errorCode" element={<ErrorRouteWrapper />} />
+          <Route path="*" element={<ErrorPage {...errorData[404]} />} />
         </Route>
-    </Routes>
+
+        {/* Authentication Routes */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot" element={<Forgot />} />
+        </Route>
+      </Routes>
     </Suspense>
   );
 }
