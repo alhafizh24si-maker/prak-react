@@ -6,6 +6,7 @@ import {
   FaLock,
   FaBan,
   FaQuestionCircle,
+  FaThLarge, // <-- TAMBAHKAN ICON BARU UNTUK PLAYGROUND
 } from "react-icons/fa";
 import { FaBoxOpen } from "react-icons/fa";
 import { MdSpaceDashboard } from "react-icons/md";
@@ -71,7 +72,17 @@ export default function Sidebar() {
             </NavLink>
           </li>
 
-          {/* Error Testing Menus (Sesuai Instruksi) */}
+          {/* ========================================================
+              MENU BARU: COMPONENTS PLAYGROUND (Sesuai instruksi)
+             ======================================================== */}
+          <li>
+            <NavLink id="menu-components" to="/components" className={menuClass}>
+              <FaThLarge className="mr-4 text-xl" />
+              Components
+            </NavLink>
+          </li>
+
+          {/* Error Testing Menus */}
           <div className="pt-4 pb-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
             Error Pages
           </div>

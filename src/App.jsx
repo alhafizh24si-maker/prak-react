@@ -1,17 +1,17 @@
-import React, { Suspense } from "react"; // Hapus useState karena tidak terpakai
+import React, { Suspense } from "react"; 
 import { Route, Routes, useParams } from "react-router-dom";
 import "./assets/tailwind.css";
 import Loading from "./components/Loading";
-
-// --- PERBAIKAN UTAMA: HAPUS IMPORT JSON DI SINI ---
-// File JSON tidak boleh di-import di App.jsx karena lokasinya tidak sesuai 
-// dan App.jsx tidak membutuhkan data tersebut secara langsung.
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Orders = React.lazy(() => import("./pages/Orders"));
 const Customers = React.lazy(() => import("./pages/Customers"));
 const Products = React.lazy(() => import("./pages/Products"));
 const ProductsDetail = React.lazy(() => import("./pages/ProductsDetail"));
+
+// --- LAZY IMPORT UNTUK HALAMAN PLAYGROUND BARU ---
+const ComponentsPage = React.lazy(() => import("./pages/Components"));
+
 const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
@@ -61,9 +61,14 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/products" element={<Products />} />
-          {/* Dynamic Route untuk Detail Produk */}
           <Route path="/products/:id" element={<ProductsDetail />} /> 
           <Route path="/customers" element={<Customers />} />
+          
+          {/* ========================================================
+              ROUTE BARU: MENANGKAP PATH /components KE HALAMAN PLAYGROUND
+             ======================================================== */}
+          <Route path="/components" element={<ComponentsPage />} />
+
           <Route path="/error/:errorCode" element={<ErrorRouteWrapper />} />
           <Route path="*" element={<ErrorPage {...errorData[404]} />} />
         </Route>
