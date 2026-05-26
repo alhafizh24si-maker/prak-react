@@ -12,6 +12,9 @@ const ProductsDetail = React.lazy(() => import("./pages/ProductsDetail"));
 // --- LAZY IMPORT UNTUK HALAMAN PLAYGROUND BARU ---
 const ComponentsPage = React.lazy(() => import("./pages/Components"));
 
+// 🟢 LAZY IMPORT UNTUK HALAMAN FITUR XYZ BARU
+const FiturXyz = React.lazy(() => import("./pages/FiturXyz"));
+
 const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
@@ -68,6 +71,11 @@ function App() {
               ROUTE BARU: MENANGKAP PATH /components KE HALAMAN PLAYGROUND
              ======================================================== */}
           <Route path="/components" element={<ComponentsPage />} />
+
+          {/* ========================================================
+              🟢 ROUTE BARU: MENANGKAP PATH /fitur-xyz
+             ======================================================== */}
+          <Route path="/fitur-xyz" element={<FiturXyz />} />
 
           <Route path="/error/:errorCode" element={<ErrorRouteWrapper />} />
           <Route path="*" element={<ErrorPage {...errorData[404]} />} />

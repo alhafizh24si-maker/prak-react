@@ -6,11 +6,14 @@ import {
   FaLock,
   FaBan,
   FaQuestionCircle,
-  FaThLarge, // <-- TAMBAHKAN ICON BARU UNTUK PLAYGROUND
+  FaThLarge, 
+  FaFlask, 
 } from "react-icons/fa";
 import { FaBoxOpen } from "react-icons/fa";
-import { MdSpaceDashboard } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+
+// 🟢 PERBAIKAN: Mengubah react-images menjadi react-icons agar tidak error
+import { MdSpaceDashboard as MdDashboard } from "react-icons/md"; 
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -48,7 +51,7 @@ export default function Sidebar() {
           {/* Main Menus */}
           <li>
             <NavLink id="menu-1" to="/" className={menuClass}>
-              <MdSpaceDashboard className="mr-4 text-xl" />
+              <MdDashboard className="mr-4 text-xl" />
               Dashboard
             </NavLink>
           </li>
@@ -72,13 +75,19 @@ export default function Sidebar() {
             </NavLink>
           </li>
 
-          {/* ========================================================
-              MENU BARU: COMPONENTS PLAYGROUND (Sesuai instruksi)
-             ======================================================== */}
+          {/* Menu Components */}
           <li>
             <NavLink id="menu-components" to="/components" className={menuClass}>
               <FaThLarge className="mr-4 text-xl" />
               Components
+            </NavLink>
+          </li>
+
+          {/* Menu Fitur XYZ */}
+          <li>
+            <NavLink id="menu-fitur-xyz" to="/fitur-xyz" className={menuClass}>
+              <FaFlask className="mr-4 text-xl" />
+              Fitur XYZ
             </NavLink>
           </li>
 
