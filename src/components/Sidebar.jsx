@@ -7,12 +7,11 @@ import {
   FaBan,
   FaQuestionCircle,
   FaThLarge, 
-  FaFlask, 
+  FaFlask,
+  FaRegStickyNote, // 🟢 Tambahkan icon ini
 } from "react-icons/fa";
 import { FaBoxOpen } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-
-// 🟢 PERBAIKAN: Mengubah react-images menjadi react-icons agar tidak error
 import { MdSpaceDashboard as MdDashboard } from "react-icons/md"; 
 
 export default function Sidebar() {
@@ -48,7 +47,6 @@ export default function Sidebar() {
       {/* List Menu */}
       <div id="sidebar-menu" className="mt-10 overflow-y-auto">
         <ul id="menu-list" className="space-y-3">
-          {/* Main Menus */}
           <li>
             <NavLink id="menu-1" to="/" className={menuClass}>
               <MdDashboard className="mr-4 text-xl" />
@@ -67,7 +65,6 @@ export default function Sidebar() {
               Customers
             </NavLink>
           </li>
-
           <li>
             <NavLink id="menu-products" to="/products" className={menuClass}>
               <FaBoxOpen className="mr-4 text-xl" />
@@ -75,15 +72,20 @@ export default function Sidebar() {
             </NavLink>
           </li>
 
-          {/* Menu Components */}
+          {/* 🟢 NAV MENU BARU: Notes App */}
+          <li>
+            <NavLink id="menu-notes" to="/notes" className={menuClass}>
+              <FaRegStickyNote className="mr-4 text-xl" />
+              Notes App
+            </NavLink>
+          </li>
+
           <li>
             <NavLink id="menu-components" to="/components" className={menuClass}>
               <FaThLarge className="mr-4 text-xl" />
               Components
             </NavLink>
           </li>
-
-          {/* Menu Fitur XYZ */}
           <li>
             <NavLink id="menu-fitur-xyz" to="/fitur-xyz" className={menuClass}>
               <FaFlask className="mr-4 text-xl" />
@@ -146,10 +148,7 @@ export default function Sidebar() {
             alt="avatar koki asli"
           />
         </div>
-        <span
-          id="footer-brand"
-          className="font-bold text-gray-400 block text-xs"
-        >
+        <span id="footer-brand" className="font-bold text-gray-400 block text-xs">
           Sedap Restaurant Admin Dashboard
         </span>
         <p id="footer-copyright" className="font-light text-gray-400 text-xs">

@@ -9,12 +9,11 @@ const Customers = React.lazy(() => import("./pages/Customers"));
 const Products = React.lazy(() => import("./pages/Products"));
 const ProductsDetail = React.lazy(() => import("./pages/ProductsDetail"));
 
-// --- LAZY IMPORT UNTUK HALAMAN PLAYGROUND BARU ---
+// 🟢 LAZY IMPORT UNTUK HALAMAN NOTES BARU
+const NotesPage = React.lazy(() => import("./pages/Notes")); // Pastikan file diletakkan di folder pages/Notes.jsx
+
 const ComponentsPage = React.lazy(() => import("./pages/Components"));
-
-// 🟢 LAZY IMPORT UNTUK HALAMAN FITUR XYZ BARU
 const FiturXyz = React.lazy(() => import("./pages/FiturXyz"));
-
 const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
@@ -68,15 +67,12 @@ function App() {
           <Route path="/customers" element={<Customers />} />
           
           {/* ========================================================
-              ROUTE BARU: MENANGKAP PATH /components KE HALAMAN PLAYGROUND
+              🟢 ROUTE BARU: MENANGKAP PATH /notes KE HALAMAN NOTES APP
              ======================================================== */}
+          <Route path="/notes" element={<NotesPage />} />
+
           <Route path="/components" element={<ComponentsPage />} />
-
-          {/* ========================================================
-              🟢 ROUTE BARU: MENANGKAP PATH /fitur-xyz
-             ======================================================== */}
           <Route path="/fitur-xyz" element={<FiturXyz />} />
-
           <Route path="/error/:errorCode" element={<ErrorRouteWrapper />} />
           <Route path="*" element={<ErrorPage {...errorData[404]} />} />
         </Route>
