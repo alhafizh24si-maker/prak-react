@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API_URL = "https://tbzteziwgozylpkmzsjs.supabase.co/rest/v1/note"
-const API_KEY = "<sb_publishable_YXmGQOJ7OKwLKyLlZfiBVQ_ICUjUqfc>"
+const API_KEY = "sb_publishable_YXmGQOJ7OKwLKyLlZfiBVQ_ICUjUqfc"
 
 const headers = {
     apikey: API_KEY,
